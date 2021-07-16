@@ -1,0 +1,10 @@
+<h1>Template</h1>
+<hr>
+<div class="list-group">
+
+    <a class="list-group-item list-group-item-action" 
+    *ngFor="let ruta of item" routerLink="['ruta.url']">
+        {{ ruta.text}}
+    </a>
+
+</div>
