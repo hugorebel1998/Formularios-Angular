@@ -10,7 +10,7 @@ import { Item } from '../interfaces/item.interface';
 export class SidemenuComponent{
 
 
-  item: Item[] = 
+  templateitem: Item[] = 
   [
     {
       text: 'Basicos',
@@ -24,6 +24,22 @@ export class SidemenuComponent{
       text: 'Switches',
       url: './template/switches'
     }
-
   ];
+
+
+  reactiveItem: Item [] =
+  [
+    {
+      text: 'Basicos',
+      url: './reactive/basicos'
+    },
+    {
+      text: 'Dinamicos',
+      url: './reactive/dinamicos'
+    },
+    {
+      text: 'Switches',
+      url: './reactive/switches'
+    }
+  ]
 }
