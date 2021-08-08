@@ -9,13 +9,21 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicosComponent {
 
+  // En caso de querer valores por defecto al iniciar el formulario
+  /*valorAlInicio = {
+    producto: 'LapTop',
+    precio: 200,
+    existencia: 1
+  }
+  */
+
   @ViewChild('miFormulario') miFormulario!: NgForm;
 
   // guardar(miFormulario:NgForm){
   //   console.log(miFormulario.value);
   // }
 
-  productoValido(): boolean {
+  productoValido() {
     return this.miFormulario?.controls.producto?.invalid && this.miFormulario?.controls.producto?.touched
   }
 
@@ -25,9 +33,11 @@ export class BasicosComponent {
 
 
   guardar() {
-    console.log(this.miFormulario);
-
+    console.log("Posteo del formulario correcto");
+    this.miFormulario.resetForm({
+      producto: "Sin asignar",
+      precio: 0,
+      existencia: 0
+    })
   }
-
-
 }
