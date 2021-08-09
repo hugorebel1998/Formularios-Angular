@@ -3,26 +3,33 @@
         <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
             <div class="col-sm-10">
                 <label>Nombre</label>
-                <input type="text" class="form-control mb-3" placeholder="Agregar nombre" ngModel name="nombre" required
-                    minlength="1">
+                <input type="text" class="form-control mb-3" placeholder="Agregar nombre" [ngModel]="persona.nombre"
+                    name="nombre" required minlength="1">
                 <span class="form-text text-danger" *ngIf="nombreValido()">
                     El campo debe ser llenados
                 </span>
                 <label>Agregar</label>
                 <div class="input-group mt-3 mb-3">
-                    <input type="text" class="form-control" placeholder="Agregar">
+                    <input type="text" class="form-control" [(ngModel)]="nuevoJuego"  name="nuevoJuego" placeholder="Agregar">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-success" type="button" id="button-addon2">Agregar</button>
+                        <button class="btn btn-outline-success" (click)="agregar()">Agregar</button>
                     </div>
                 </div>
                 <label>Favoritos</label>
-                <input type="text" class="form-control mt-3">
+                <div class="input-group mt-3 " *ngFor="let favorito of persona.favoritos; let i = index">
+                    <input class="form-control" [(ngModel)]="favorito.nombre" name="favorito_{{ i }}" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-danger" (click)="eliminar(i)"  >Borrar</button>
+                    </div>
+                </div>
 
-
-                <div class="text-center mt-4" (click)="guardar()">
-                    <button type="submit" [disabled]="miFormulario.invalid" class="btn btn-sm btn-primary">Agregar</button>
+                <div class="text-center mt-4" (click)="agregar()">
+                    <button type="submit" [disabled]="miFormulario.invalid"
+                        class="btn btn-sm btn-primary">Agregar</button>
                 </div>
             </div>
+
+            <span>{{ persona |json }}</span>
         </form>
 
     </div>

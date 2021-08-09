@@ -23,6 +23,10 @@ export class SidemenuComponent{
     {
       text: 'Switches',
       url: './template/switches'
+    },
+    {
+      text: 'Repaso',
+      url: './template/repaso'
     }
   ];
 
@@ -40,6 +44,10 @@ export class SidemenuComponent{
     {
       text: 'Switches',
       url: './reactive/switches'
+    },
+    {
+      text: 'Repaso',
+      url: './reactive/repaso'
     }
   ]
 }

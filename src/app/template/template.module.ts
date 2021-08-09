@@ -7,6 +7,7 @@ import { BasicosComponent } from './basicos/basicos.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { SwitchesComponent } from './switches/switches.component';
 import { CustomMinDirective } from './directives/custom-min.directive';
+import { RepasoComponent } from './repaso/repaso.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CustomMinDirective } from './directives/custom-min.directive';
     BasicosComponent,
     DinamicosComponent,
     SwitchesComponent,
-    CustomMinDirective
+    CustomMinDirective,
+    RepasoComponent
   ],
   imports: [
     CommonModule,
