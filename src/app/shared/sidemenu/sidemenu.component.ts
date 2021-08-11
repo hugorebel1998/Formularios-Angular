@@ -50,4 +50,14 @@ export class SidemenuComponent{
       url: './reactive/repaso'
     }
   ]
+  authItem: Item []= [
+    {
+      text: 'Login',
+      url: './auth/login'
+    },
+    {
+      text: 'Registro',
+      url: './auth/registro'
+    }
+  ]
 }
