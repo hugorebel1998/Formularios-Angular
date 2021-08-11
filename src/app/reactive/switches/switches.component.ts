@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-switches',
@@ -6,17 +7,39 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class SwitchesComponent{
+export class SwitchesComponent implements OnInit{
 
+  miFormulario: FormGroup = this._formB.group({
+
+    genero : ['M', Validators.required],
+    notificaciones : [true, Validators.required],
+    condiciones : [false, Validators.requiredTrue]
+  });
 
   persona = {
-    genero : '', 
-    notificaciones: true
+    genero : 'F',
+    notificaciones : true
   }
 
-  terminos: boolean = false;
+
+
+  constructor( 
+    private _formB:FormBuilder
+    ){
+  }
+
+  ngOnInit(){
+    this.miFormulario.reset(this.persona);
+  }
+
 
   guardar(){
+   const formValue = this.miFormulario.value;
+   delete formValue.condiciones;
+
+   console.log(formValue);
+
+   this.persona = formValue;
 
   }
 
